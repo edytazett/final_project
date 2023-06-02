@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zarządzanie transportem</title>
+    <link rel="stylesheet" href="{% static "css/simple.css" %}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'dashboard' %}">APLIKACJA</a></li>
+            <li><a href="{% url 'login' %}">LOGOWANIE</a></li>
+            <li><a href="{% url 'register' %}">REJESTRACJA</a></li>
+            <li><a href="#">O APLIKACJI</a></li>
+            <li><a href="#">KONTAKT</a></li>
+        </ul>
+    </nav>
+</header>
+
+{% block content %}
+
+
+{% endblock %}
+
+<footer>
+    <p>Copyright by E 2023</p>
+</footer>
+</body>
+</html>

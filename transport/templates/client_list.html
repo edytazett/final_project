@@ -1,0 +1,13 @@
+{% extends 'dashboard2.html' %}
+{% block content %}
+
+    <h2>LISTA KONTRAHENTÓW</h2>
+    <a href="{% url 'client_create' %}"><input type="submit" value="DODAJ KONTRAHENTA"></a>
+
+    <ul>
+    {% for object in object_list %}
+        <li><a href="{{ object.get_absolute_url }}" >{{ object.name_full }}</a> ({{ object.vat_number }})</li>
+    {% endfor %}
+    <ul>
+
+{% endblock %}

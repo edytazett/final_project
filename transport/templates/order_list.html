@@ -1,0 +1,54 @@
+{% extends 'dashboard2.html' %}
+{% block content %}
+
+
+    <h2>LISTA ZLECEŃ</h2>
+    <a href="{% url 'order_create' %}"><input type="submit" value="DODAJ ZLECENIE"></a>
+    <input type="text" id="search_input" onkeyup="searchFunction()" placeholder="Szukaj numeru zlecenia...">
+    <table id="order_list_table">
+    <thead>
+        <td>Numer zlecenia</td>
+        <td>Data przyjęcia zlecenia</td>
+        <td>Data zał</td>
+        <td>Miejscowość rozł</td>
+        <td>Kod pocztowy rozł</td>
+        <td>Data rozł</td>
+        <td>Miejscowość rozł</td>
+        <td>Kod pocztowy rozł</td>
+        <td>Liczba palet</td>
+        <td>Rozmiar palet</td>
+        <td>LDM</td>
+        <td>Ciężar</td>
+        <td>Cena (EUR)</td>
+        <td>Kontrahent</td>
+        <td>Osoba kontaktowa</td>
+    </thead>
+
+    {% for object in object_list %}
+    <tr>
+        <td>{{ object.order_number }}</td>
+        <td>{{ object.creation_date }}</td>
+        <td>{{ object.pick_up_date }}</td>
+        <td>{{ object.pick_up_city }}</td>
+        <td>{{ object.pick_up_postcode }}</td>
+        <td>{{ object.delivery_date }}</td>
+        <td>{{ object.delivery_city }}</td>
+        <td>{{ object.delivery_postcode }}</td>
+        <td>{{ object.pallets_number }}</td>
+        <td>{{ object.pallets_size }}</td>
+        <td>{{ object.ldm }}</td>
+        <td>{{ object.weight }}</td>
+        <td>{{ object.price }}</td>
+        <td>{{ object.client_vat_number }}</td>
+        <td>{{ object.client_contact_person }}</td>
+    </tr>
+    {% endfor %}
+
+    <tbody></tbody>
+    </table>
+
+
+
+
+
+{% endblock %}
