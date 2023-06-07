@@ -1,4 +1,79 @@
 {% extends 'dashboard2.html' %}
+
+
+
 {% block content %}
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-ul38{position:-webkit-sticky;position:sticky;text-align:left;top:-1px;vertical-align:top;will-change:transform}
+.tg .tg-rz9m{position:-webkit-sticky;position:sticky;text-align:center;top:-1px;vertical-align:top;will-change:transform}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+
+<h3>IMPORTY</h3>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-ul38" colspan="5"></th>
+    <th class="tg-rz9m" colspan="4">ZAŁADUNEK</th>
+    <th class="tg-rz9m" colspan="4">ROZŁADUNEK</th>
+    <th class="tg-ul38" colspan="5">ŁADUNEK</th>
+    <th class="tg-ul38" colspan="2"></th>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Kolejność</td>
+    <td class="tg-0lax">Pojazd</td>
+    <td class="tg-0lax">Numer zlecenia</td>
+    <td class="tg-0lax">Spedytor</td>
+    <td class="tg-0lax">Zleceniodawca / os. kontaktowa</td>
+    <td class="tg-0lax">Data</td>
+    <td class="tg-0lax">Kod pocztowy </td>
+    <td class="tg-0lax">Mijescowość</td>
+    <td class="tg-0lax">Komentarz</td>
+    <td class="tg-0lax">Data</td>
+    <td class="tg-0lax">Kod pocztowy</td>
+    <td class="tg-0lax">Miejscowość</td>
+    <td class="tg-0lax">Komentarz</td>
+    <td class="tg-0lax">Liczba palet</td>
+    <td class="tg-0lax">Rozmiar palet</td>
+    <td class="tg-0lax">LDM</td>
+    <td class="tg-0lax">Waga [t]</td>
+    <td class="tg-0lax">Stawka [EUR]</td>
+    <td class="tg-0lax">Pojazd (odbiór/dostawa)</td>
+    <td class="tg-0lax">Kierowca (odbiór/dostawa)</td>
+  </tr>
+</thead>
+<tbody>
+{% for order in orders %}
+  <tr>
+    <td class="tg-0lax">kolejnosc</td>
+    <td class="tg-0lax">auto</td>
+    <td class="tg-0lax">{{ order.order_number }}</td>
+    <td class="tg-0lax">spedytor</td>
+    <td class="tg-0lax">{{ order.client_vat_number }} / {{ order.client_contact_person }}</td>
+    <td class="tg-0lax">{{ order.pick_up_date }}</td>
+    <td class="tg-0lax">{{ order.pick_up_postcode }}</td>
+    <td class="tg-0lax">{{ order.pick_up_city }}</td>
+    <td class="tg-0lax">{{ order.pick_up_comments }}</td>
+    <td class="tg-0lax">{{ order.delivery_date }}</td>
+    <td class="tg-0lax">{{ order.delivery_postcode }}</td>
+    <td class="tg-0lax">{{ order.delivery_city }}</td>
+    <td class="tg-0lax">{{ order.delivery_comments }}</td>
+    <td class="tg-0lax">{{ order.pallets_size }}</td>
+    <td class="tg-0lax">{{ order.pallets_number }}</td>
+    <td class="tg-0lax">{{ order.ldm }}</td>
+    <td class="tg-0lax">{{ order.weight }}</td>
+    <td class="tg-0lax">{{ order.price }}</td>
+    <td class="tg-0lax">auto odbior/dostawa</td>
+    <td class="tg-0lax">kierowca odbior/dostawa</td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
 
 {% endblock %}

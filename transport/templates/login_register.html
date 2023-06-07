@@ -1,0 +1,12 @@
+
+{% extends 'index2.html' %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <br><input type="submit" value="Wyślij">
+</form>
+
+{% endblock %}

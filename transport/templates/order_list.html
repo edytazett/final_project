@@ -5,45 +5,47 @@
     <h2>LISTA ZLECEŃ</h2>
     <a href="{% url 'order_create' %}"><input type="submit" value="DODAJ ZLECENIE"></a>
     <input type="text" id="search_input" onkeyup="searchFunction()" placeholder="Szukaj numeru zlecenia...">
-    <table id="order_list_table">
+    <table id="order_list_table" class="tg">
     <thead>
-        <td>Numer zlecenia</td>
-        <td>Data przyjęcia zlecenia</td>
-        <td>Data zał</td>
-        <td>Miejscowość rozł</td>
-        <td>Kod pocztowy rozł</td>
-        <td>Data rozł</td>
-        <td>Miejscowość rozł</td>
-        <td>Kod pocztowy rozł</td>
-        <td>Liczba palet</td>
-        <td>Rozmiar palet</td>
-        <td>LDM</td>
-        <td>Ciężar</td>
-        <td>Cena (EUR)</td>
-        <td>Kontrahent</td>
-        <td>Osoba kontaktowa</td>
-    </thead>
+        <td class="tg-ul38">Numer zlecenia</td>
+        <td class="tg-ul38">Data przyjęcia zlecenia</td>
 
+        <td class="tg-ul38">Data zał</td>
+        <td class="tg-ul38">Miejscowość zał</td>
+        <td class="tg-ul38">Kod pocztowy zał</td>
+
+        <td class="tg-ul38">Data rozł</td>
+        <td class="tg-ul38">Miejscowość rozł</td>
+        <td class="tg-ul38">Kod pocztowy rozł</td>
+        <td class="tg-ul38">Liczba palet</td>
+        <td class="tg-ul38">Rozmiar palet</td>
+        <td class="tg-ul38">LDM</td>
+        <td class="tg-ul38">Ciężar</td>
+        <td class="tg-ul38">Cena (EUR)</td>
+        <td class="tg-ul38">Kontrahent</td>
+        <td class="tg-ul38">Osoba kontaktowa</td>
+    </thead>
+    <tbody>
     {% for object in object_list %}
     <tr>
-        <td>{{ object.order_number }}</td>
-        <td>{{ object.creation_date }}</td>
-        <td>{{ object.pick_up_date }}</td>
-        <td>{{ object.pick_up_city }}</td>
-        <td>{{ object.pick_up_postcode }}</td>
-        <td>{{ object.delivery_date }}</td>
-        <td>{{ object.delivery_city }}</td>
-        <td>{{ object.delivery_postcode }}</td>
-        <td>{{ object.pallets_number }}</td>
-        <td>{{ object.pallets_size }}</td>
-        <td>{{ object.ldm }}</td>
-        <td>{{ object.weight }}</td>
-        <td>{{ object.price }}</td>
-        <td>{{ object.client_vat_number }}</td>
-        <td>{{ object.client_contact_person }}</td>
+        <td class="tg-0lax"><a href="{{ object.get_absolute_url }}">{{ object.order_number }}</a></td>
+        <td class="tg-0lax">{{ object.creation_date }}</td>
+        <td class="tg-0lax">{{ object.pick_up_date }}</td>
+        <td class="tg-0lax">{{ object.pick_up_city }}</td>
+        <td class="tg-0lax">{{ object.pick_up_postcode }}</td>
+        <td class="tg-0lax">{{ object.delivery_date }}</td>
+        <td class="tg-0lax">{{ object.delivery_city }}</td>
+        <td class="tg-0lax">{{ object.delivery_postcode }}</td>
+        <td class="tg-0lax">{{ object.pallets_number }}</td>
+        <td class="tg-0lax">{{ object.pallets_size }}</td>
+        <td class="tg-0lax">{{ object.ldm }}</td>
+        <td class="tg-0lax">{{ object.weight }}</td>
+        <td class="tg-0lax">{{ object.price }}</td>
+        <td class="tg-0lax">{{ object.client_vat_number }}</td>
+        <td class="tg-0lax">{{ object.client_contact_person }}</td>
     </tr>
     {% endfor %}
-
+    </tbody>
     <tbody></tbody>
     </table>
 

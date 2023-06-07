@@ -5,12 +5,11 @@ from django.core.exceptions import ValidationError
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(max_length=128, label='Login')
+    password = forms.CharField(widget=forms.PasswordInput, max_length=150, label='Hasło')
 
     def clean(self):
         cleaned_data = super().clean()
-
         user = authenticate(**cleaned_data)
         if user is None:
             raise ValidationError('Niepoprawne dane logowania!')

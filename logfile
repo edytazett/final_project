@@ -1,0 +1,16 @@
+2023-06-03 18:35:43.723 CEST [1682] LOG:  starting PostgreSQL 14.8 (Homebrew) on x86_64-apple-darwin22.4.0, compiled by Apple clang version 14.0.3 (clang-1403.0.22.14.1), 64-bit
+2023-06-03 18:35:43.725 CEST [1682] LOG:  listening on IPv6 address "::1", port 5432
+2023-06-03 18:35:43.725 CEST [1682] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-06-03 18:35:43.727 CEST [1682] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2023-06-03 18:35:43.731 CEST [1683] LOG:  database system was shut down at 2023-06-03 18:35:05 CEST
+2023-06-03 18:35:43.734 CEST [1682] LOG:  database system is ready to accept connections
+2023-06-03 18:36:29.730 CEST [1720] FATAL:  role "postgres" does not exist
+2023-06-03 18:38:09.288 CEST [1779] FATAL:  database "edytazakrzewska" does not exist
+2023-06-03 18:41:24.903 CEST [1869] FATAL:  database "final_project" does not exist
+2023-06-03 18:42:06.666 CEST [1898] ERROR:  permission denied to create database
+2023-06-03 18:42:06.666 CEST [1898] STATEMENT:  create database final_project
+2023-06-04 16:59:30.558 CEST [10959] ERROR:  integer out of range
+2023-06-04 16:59:30.558 CEST [10959] STATEMENT:  INSERT INTO "transport_client" ("name_full", "name_short", "address_street", "address_postcode", "address_city", "address_country", "vat_number", "email", "phone_number", "payment_term", "exchange_rate", "payment_email", "payment_phone_number", "mailing_address_street", "mailing_address_postcode", "mailing_address_city", "mailing_address_country", "creation_date") VALUES ('Krzak sp.zo.o.', 'Krzak', 'ul. Konwaliowa 10', '09-918', 'Korczyn', 'Polska', 8881119900, 'krzak@krzak.pl', '+48500000000', 45,  -1, 'platnosci@krzak.pl', '+48500000001', 'ul. Konwaliowa 11', '09-918', 'Korczyn', 'Polska', '2023-06-04'::date) RETURNING "transport_client"."id"
+2023-06-04 17:04:18.879 CEST [11100] ERROR:  value too long for type character varying(5)
+2023-06-04 17:04:18.879 CEST [11100] STATEMENT:  INSERT INTO "transport_client" ("name_full", "name_short", "address_street", "address_postcode", "address_city", "address_country", "vat_number", "email", "phone_number", "payment_term", "exchange_rate", "payment_email", "payment_phone_number", "mailing_address_street", "mailing_address_postcode", "mailing_address_city", "mailing_address_country", "creation_date") VALUES ('Krzak sp.zo.o.', 'Krzak', 'ul. Konwaliowa 10', '09-918', 'Korczyn', 'Polska', '8881119900', 'krzak@krzak.pl', '+48500000000', 45,  -1, 'platnosci@krzak.pl', '+48500000001', 'ul. Konwaliowa 11', '09-918', 'Korczyn', 'Polska', '2023-06-04'::date) RETURNING "transport_client"."id"
+2023-06-05 04:57:01.059 CEST [1689] LOG:  stats_timestamp 2023-06-05 04:57:01.096334+02 is later than collector's time 2023-06-05 04:57:01.057652+02 for database 0

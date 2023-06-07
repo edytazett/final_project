@@ -1,0 +1,70 @@
+{% extends 'dashboard2.html' %}
+
+{% block content %}
+    <h2>MOJA FIRMA</h2>
+    ul.
+    Miejscowość
+    Kraj
+    NIP
+    <a href=""><input type="submit" value="EDYTUJ"></a>
+    <br>
+    <h2>PRACOWNICY</h2>
+    <a href="{% url 'employee_create' %}"><input type="submit" value="DODAJ PRACOWNIKA"></a>
+    <table>
+    <thead>
+        <tr>
+            <td>NAZWISKO</td>
+            <td>IMIĘ</td>
+            <td>STANOWISKO</td>
+            <td>DZIAŁ</td>
+            <td>DATA ZATRUDNIENIA</td>
+            <td>KONIEC ZATRUDNIENIA</td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for employee in employees %}
+    <tr>
+    <td>{{ employee.surname }}</td>
+    <td>{{ employee.name }}</td>
+    <td>{{ employee.position }}</td>
+    <td>{{ employee.department }}</td>
+    <td>{{ employee.start_work_date }}</td>
+    <td>{{ employee.end_work_date }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    <br>
+    <br>
+    <h2>POJAZDY</h2>
+    <a href="{% url 'truck_create' %}"><input type="submit" value="DODAJ CIĄGNIK"></a>
+    <a href="{% url 'trailer_create' %}"><input type="submit" value="DODAJ NACZEPĘ"></a>
+
+    <table>
+    <thead>
+        <tr>
+            <td>CIĄGNIK</td>
+            <td>NACZEPA</td>
+            <td>KIEROWCA</td>
+            <td>ŁADOWNOSĆ</td>
+            <td>ROK PRODUKCJI</td>
+        </tr>
+
+    </thead>
+
+    <tbody>
+    {% for truck in trucks %}
+        <tr>
+            <td><a href="{{ truck.get_absolute_url }}">{{ truck.plate_number }}</a></td>
+            <td>{{ truck.trailer }}</td>
+            <td>{{ truck.driver }}</td>
+            <td>{{ truck.capacity }}</td>
+            <td>{{ truck.year }}</td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+    </table>
+
+
+{% endblock %}

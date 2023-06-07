@@ -3,10 +3,10 @@
 
 {% block content %}
 
-<form>
+<form method="POST">
     {% csrf_token %}
     {{ form.as_table }}
-    <br><input type="button" value="Wyślij">
+    <br><input type="submit" value="Wyślij">
 </form>
 
 {% endblock %}

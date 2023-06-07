@@ -21,15 +21,23 @@ from transport import views
 urlpatterns = [
     path('', views.MainPageView.as_view(), name='main_page'),
     path('dashboard/', views.DashboardView.as_view(), name='dashboard'),
-    path('client_create/', views.ClientCreateView.as_view(), name='client_create'),
-    path('client_update/<int:pk>/', views.ClientUpdateView.as_view(), name='client_update'),
-    path('client_list/', views.ClientListView.as_view(), name='client_list'),
+    path('my_company', views.MyCompanyView.as_view(), name='my_company'),
+    path('exports/', views.ExportsView.as_view(), name='exports'),
+    path('imports/', views.ImportsView.as_view(), name='imports'),
+    path('customer_create/', views.CustomerCreateView.as_view(), name='customer_create'),
+    path('customer_update/<int:pk>/', views.CustomerUpdateView.as_view(), name='customer_update'),
+    path('customer_list/', views.CustomerListView.as_view(), name='customer_list'),
     path('person_create/', views.PersonCreateView.as_view(), name='person_create'),
     path('person_update/<int:pk>/', views.PersonUpdateView.as_view(), name='person_update'),
     path('employee_create/', views.EmployeeCreateView.as_view(), name='employee_create'),
     path('employee_update/<int:pk>/', views.EmployeeUpdateView.as_view(), name='employee_update'),
     path('order_create/', views.OrderCreateView.as_view(), name='order_create'),
     path('order_update/<int:pk>/', views.OrderUpdateView.as_view(), name='order_update'),
-    path('order_list/', views.OrderListView.as_view(), name='order_list')
+    path('order_list/', views.OrderListView.as_view(), name='order_list'),
+    path('truck_create/', views.TruckCreateView.as_view(), name='truck_create'),
+    path('truck_update/', views.TruckUpdateView.as_view(), name='truck_update'),
+    path('trailer_create/', views.TrailerCreateView.as_view(), name='trailer_create'),
+    path('trailer_update/', views.TrailerUpdateView.as_view(), name='trailer_update'),
+
 
 ]

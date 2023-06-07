@@ -9,7 +9,7 @@ from account.forms import LoginForm, SignInForm
 class LoginView(View):
     def get(self, request):
         form = LoginForm()
-        return render(request, 'form.html', {'form': form})
+        return render(request, 'login_register.html', {'form': form})
 
     def post(self, request):
         form = LoginForm(request.POST)
@@ -18,7 +18,7 @@ class LoginView(View):
             if user is not None:
                 login(request, user)
             return redirect('main_page')
-        return render(request, 'form.html', {'form': form})
+        return render(request, 'login_register.html', {'form': form})
 
 
 class LogoutView(View):
@@ -30,7 +30,7 @@ class LogoutView(View):
 class SignInView(View):
     def get(self, request):
         form = SignInForm()
-        return render(request, 'form.html', {'form': form})
+        return render(request, 'login_register.html', {'form': form})
 
     def post(self, request):
         form = SignInForm(request.POST)
@@ -40,4 +40,4 @@ class SignInView(View):
             user.save()
             login(request, user)
             return redirect('main_page')
-        return render(request, 'form.html', {'form': form})
+        return render(request, 'login_register.html', {'form': form})

@@ -1,10 +1,10 @@
 from django.forms import Form, ModelForm
-from transport.models import Client, Person, Employee, Truck, Trailer, Order
+from transport.models import Customer, Person, Employee, Truck, Trailer, Order
 
 
-class ClientCreateForm(ModelForm):
+class CustomerCreateForm(ModelForm):
     class Meta:
-        model = Client
+        model = Customer
         exclude = ['creation_date']
 
 
@@ -17,7 +17,7 @@ class PersonCreateForm(ModelForm):
 class EmployeeCreateForm(ModelForm):
     class Meta:
         model = Employee
-        fields = '__all__'
+        exclude = ['end_work_date']
 
 
 class TruckCreateForm(ModelForm):

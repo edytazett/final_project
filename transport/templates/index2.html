@@ -9,11 +9,18 @@
 <body>
 
 <header>
+    {% if user.is_authenticated %}
+        Witaj {{ user.username }}
+    {% endif %}
     <nav>
         <ul>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">WYLOGUJ</a></li>
             <li><a href="{% url 'dashboard' %}">APLIKACJA</a></li>
+            {% else %}
             <li><a href="{% url 'login' %}">LOGOWANIE</a></li>
             <li><a href="{% url 'register' %}">REJESTRACJA</a></li>
+            {% endif %}
             <li><a href="#">O APLIKACJI</a></li>
             <li><a href="#">KONTAKT</a></li>
         </ul>

@@ -9,21 +9,34 @@
 </head>
 <body>
 <header>
+    {% if user.is_authenticated %}
+        Witaj {{ user.username }}
+    {% endif %}
     <nav>
         <ul>
-            <li><a href="">Exporty</a></li>
-            <li><a href="">Importy</a></li>
+            <li><a href="{% url 'exports' %}">Exporty</a></li>
+            <li><a href="{% url 'imports' %}">Importy</a></li>
             <li><a href="{% url 'order_list' %}">Zlecenia</a></li>
             <li><a href="{% url 'client_list' %}">Kontrahenci</a></li>
+            <li><a href="{% url 'my_company' %}">Twoja Firma</a></li>
             <li><a href="{% url 'main_page' %}">STRONA GŁÓWNA</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">WYLOGUJ</a></li>
+            {% endif %}
+
         </ul>
     </nav>
 </header>
 
 {% block content %}
+
+
+
 {% endblock %}
 
 
-
+<footer>
+    <p>Copyright by E 2023</p>
+</footer>
 </body>
 </html>
