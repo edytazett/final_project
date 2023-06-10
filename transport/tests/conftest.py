@@ -1,6 +1,6 @@
 from transport.models import Customer, Person, Employee, Trailer, Truck, Order
 import pytest
-from pytest import Client
+from django.test import Client
 
 
 @pytest.fixture
