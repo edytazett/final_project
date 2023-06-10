@@ -1,6 +1,7 @@
 from transport.models import Customer, Person, Employee, Trailer, Truck, Order
 import pytest
 from django.test import Client
+from django.contrib.auth.models import User, Permission
 
 
 @pytest.fixture
