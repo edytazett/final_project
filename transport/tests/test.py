@@ -145,3 +145,11 @@ def test_customercreateview_no_permission(client, user):
     response = client.get(url)
     assert response.status_code == 403
     
+    
+@pytest.mark.django_db
+def test_customercreateview(client, user_with_permission):
+    client.force_login(user_with_permission)
+    url = reverse('customer_create')
+    response = client.get(url)
+    assert response.status_code == 200
+    
