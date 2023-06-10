@@ -151,3 +151,14 @@ def client():
 def user():
     u = User.objects.create(username='uzytkownik')
     return u
+
+
+@pytest.fixture
+def user_with_permission():
+    permissions_required = ['add_customer', 'change_customer', 'add_person', 'change_person', 'add_person', 'change_person', 'add_employee', 'change_employee', 
+                            'add_truck', 'change_truck', 'add_trailer', 'change_trailer', 'add_oder', 'change_order']
+    u = User.objects.create(username='uzytkownik2')
+    for permission in permissions_required: 
+        perm = Permission.objects.get(codename=permission)
+        u.user_permissions.add(perm)   
+    return u
