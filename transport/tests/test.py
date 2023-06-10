@@ -69,6 +69,13 @@ def test_mycompanyview(client, user):
     url = reverse('my_company')
     response = client.get(url)
     assert response.status_code == 200
+    
+    
+@pytest.mark.django_db
+def test_mycompanyview_not_login(client):
+    url = reverse('my_company')
+    response = client.get(url)
+    assert response.status_code == 302
 
 
 @pytest.mark.django_db
@@ -80,11 +87,25 @@ def test_exportsview(client, user):
 
 
 @pytest.mark.django_db
+def test_exportsview_not_login(client):
+    url = reverse('my_company')
+    response = client.get(url)
+    assert response.status_code == 302
+
+
+@pytest.mark.django_db
 def test_importsview(client, user):
     client.force_login(user)
     url = reverse('imports')
     response = client.get(url)
     assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_importsview_not_login(client):
+    url = reverse('my_company')
+    response = client.get(url)
+    assert response.status_code == 302
     
     
 @pytest.mark.django_db
@@ -96,11 +117,25 @@ def test_customerlistview(client, user):
     
     
 @pytest.mark.django_db
+def test_customerlistview_not_login(client):
+    url = reverse('customer_list')
+    response = client.get(url)
+    assert response.status_code == 302
+    
+    
+@pytest.mark.django_db
 def test_orderlistview(client, user):
     client.force_login(user)
     url = reverse('order_list')
     response = client.get(url)
     assert response.status_code == 200
+    
+ 
+@pytest.mark.django_db
+def test_orderlistview_not_login(client):
+    url = reverse('orderr_list')
+    response = client.get(url)
+    assert response.status_code == 302
     
 
  @pytest.mark.django_db
