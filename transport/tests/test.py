@@ -179,3 +179,44 @@ def test_personcreateview_post(client, user_with_permission, person1_data):
     url = reverse('person_create')
     response = client.post(url, person1_data)
     assert response.status_code == 200
+    
+    
+@pytest.mark.django_db
+def test_employeecreateview_get(client, user_with_permission):
+    client.force_login(user_with_permission)
+    url = reverse('employee_create')
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_employeecreateview_post(client, user_with_permission, employee1_data):
+    client.force_login(user_with_permission)
+    url = reverse('employee_create')
+    response = client.post(url, employee1_data)
+    assert response.status_code == 302
+    redirect_url = reverse('my_company')
+    assert response.url.startswith(redirect_url)
+
+
+@pytest.mark.django_db
+def test_employeeupdateview_get(client, user_with_permission, employee1):
+    client.force_login(user_with_permission)
+    url = reverse('employee_update', kwargs={'pk': employee1.pk})
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_employeeupdateview_post(client, user_with_permission, employee1):
+    client.force_login(user_with_permission)
+    url = reverse('employee_update', kwargs={'pk': employee1.pk})
+    data = {'name': 'Janusz Mariusz',
+            'surname': 'Kowalski',
+            'position': 'Driver',
+            'department': 'Transport',
+            'start_work_date': '2023-03-03'}
+    response = client.post(url, data)
+    assert response.status_code == 200
+    e = Employee.objects.get(pk=employee1.pk)
+    assert employee1.pk == e.pk
