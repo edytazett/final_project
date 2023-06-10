@@ -60,7 +60,7 @@ def test_dashboard(client, user):
 def test_dashboard_not_login(client):
     url = reverse('dashboard')
     response = client.get(url)
-    assert response.status_code == 404
+    assert response.status_code == 302
 
 
 @pytest.mark.django_db
