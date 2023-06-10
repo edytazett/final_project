@@ -1,5 +1,6 @@
 from transport.models import Customer, Person, Employee, Trailer, Truck, Order
 import pytest
+from pytest import Client
 
 
 @pytest.fixture
@@ -137,3 +138,9 @@ def customer_list1(company1):
                                                   mailing_address_city='Stokrotka',
                                                   mailing_address_country='Polska'))
     return list
+
+
+@pytest.fixture
+def client():
+    client = Client()
+    return client
