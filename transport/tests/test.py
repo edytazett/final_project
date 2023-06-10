@@ -146,10 +146,36 @@ def test_customercreateview_no_permission(client, user):
     assert response.status_code == 403
     
     
+
 @pytest.mark.django_db
-def test_customercreateview(client, user_with_permission):
+def test_customercreateview_get(client, user_with_permission):
     client.force_login(user_with_permission)
     url = reverse('customer_create')
     response = client.get(url)
     assert response.status_code == 200
-    
+
+
+@pytest.mark.django_db
+def test_customercreateview_post(client, user_with_permission, company1_data):
+    client.force_login(user_with_permission)
+    url = reverse('customer_create')
+    response = client.post(url, company1_data)
+    assert response.status_code == 302
+    redirect_url = reverse('customer_list')
+    assert response.url.startswith(redirect_url)
+
+
+@pytest.mark.django_db
+def test_personcreateview_get(client, user_with_permission):
+    client.force_login(user_with_permission)
+    url = reverse('person_create')
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_personcreateview_post(client, user_with_permission, person1_data):
+    client.force_login(user_with_permission)
+    url = reverse('person_create')
+    response = client.post(url, person1_data)
+    assert response.status_code == 200
