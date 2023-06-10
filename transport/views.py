@@ -146,5 +146,5 @@ class OrderListView(LoginRequiredMixin, ListView):
 
 class CustomerListView(LoginRequiredMixin, ListView):
     model = Customer
-    template_name = 'customer_list.html'
+    template_name = 'client_list.html'
     paginate_by = 100
