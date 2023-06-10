@@ -81,6 +81,16 @@ def employee1():
 
 
 @pytest.fixture
+def employee1_data():
+    employee1_data = {'name': 'Janusz',
+                      'surname': 'Kowalski',
+                      'position': 'Driver',
+                      'department': 'Transport',
+                      'start_work_date': '2023-03-03'}
+    return employee1_data
+
+
+@pytest.fixture
 def trailer1():
     trailer1 = Trailer.objects.create(plate_number='WGM00000',
                                       type='tautliner',
