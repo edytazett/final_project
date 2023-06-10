@@ -144,3 +144,9 @@ def customer_list1(company1):
 def client():
     client = Client()
     return client
+
+
+@pytest.fixture
+def user():
+    u = User.objects.create(username='uzytkownik')
+    return u
