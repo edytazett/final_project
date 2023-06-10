@@ -138,10 +138,10 @@ def test_orderlistview_not_login(client):
     assert response.status_code == 302
     
 
- @pytest.mark.django_db
-def test_customercreateview(client, user_with_permission):
-    client.force_login(user_with_permission)
+@pytest.mark.django_db
+def test_customercreateview_no_permission(client, user):
+    client.force_login(user)
     url = reverse('customer_create')
     response = client.get(url)
-    assert response.status_code == 200
+    assert response.status_code == 403
     
