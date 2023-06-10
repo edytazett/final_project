@@ -49,21 +49,33 @@ def test_main_page():
 
     
 @pytest.mark.django_db
-def test_dashboard(user):
-    pass
+def test_dashboard(client, user):
+    client.force_login(user)
+    url = reverse('dashboard')
+    response = client.get(url)
+    assert response.status_code == 200
 
 
 @pytest.mark.django_db
-def test_mycompanyview(user):
-    pass
+def test_mycompanyview(client, user):
+    client.force_login(user)
+    url = reverse('my_company')
+    response = client.get(url)
+    assert response.status_code == 200
 
 
 @pytestmark.django_db
-def test_exportsview(user):
-    pass
+def test_exportsview(client, user):
+    client.force_login(user)
+    url = reverse('exports')
+    response = client.get(url)
+    assert response.status_code == 200
 
 
 @pytestmark.django_db
-def test_importsview(user):
-    pass
+def test_importsview(client, user):
+    client.force_login(user)
+    url = reverse('imports')
+    response = client.get(url)
+    assert response.status_code == 200
     
