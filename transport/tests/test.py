@@ -64,7 +64,7 @@ def test_mycompanyview(client, user):
     assert response.status_code == 200
 
 
-@pytestmark.django_db
+@pytest.mark.django_db
 def test_exportsview(client, user):
     client.force_login(user)
     url = reverse('exports')
@@ -72,7 +72,7 @@ def test_exportsview(client, user):
     assert response.status_code == 200
 
 
-@pytestmark.django_db
+@pytest.mark.django_db
 def test_importsview(client, user):
     client.force_login(user)
     url = reverse('imports')
