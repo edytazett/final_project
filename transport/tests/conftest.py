@@ -27,6 +27,28 @@ def company1():
 
 
 @pytest.fixture
+def company1_data():
+    company1_data = {'name_full': 'Krzak sp.zo.o.',
+                     'name_short': 'Krzak',
+                     'address_street': 'ul. Konwaliowa 10',
+                     'address_postcode': '09-918',
+                     'address_city': 'Korczyn',
+                     'address_country': 'Polska',
+                     'vat_number': '8881119900',
+                     'email': 'krzak@krzak.pl',
+                     'phone_number': '+48500000000',
+                     'payment_term': 45,
+                     'exchange_rate': -1,
+                     'payment_email': 'platnosci@krzak.pl',
+                     'payment_phone_number': '+48500000001',
+                     'mailing_address_street': 'ul. Konwaliowa 11',
+                     'mailing_address_postcode': '09-918',
+                     'mailing_address_city': 'Korczyn',
+                     'mailing_address_country': 'Polska'}
+    return company1_data
+
+
+@pytest.fixture
 def person1(company1):
     person1 = Person.objects.create(name='Janina',
                                     surname='Odrzywołek',
@@ -35,6 +57,17 @@ def person1(company1):
                                     email='janina.o@krzak.pl',
                                     still_active=True)
     return person1
+
+
+@pytest.fixture
+def person1_data(company1):
+    person1_data = {'name': 'Janina',
+                    'surname': 'Odrzywołek',
+                    'company': company1,
+                    'phone_number': '+48900900900',
+                    'email': 'janina.o@krzak.pl',
+                    'still_active': True}
+    return person1_data
 
 
 @pytest.fixture
