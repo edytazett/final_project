@@ -54,6 +54,13 @@ def test_dashboard(client, user):
     url = reverse('dashboard')
     response = client.get(url)
     assert response.status_code == 200
+    
+
+@pytest.mark.django_db
+def test_dashboard_not_login(client):
+    url = reverse('dashboard')
+    response = client.get(url)
+    assert response.status_code == 404
 
 
 @pytest.mark.django_db
@@ -76,6 +83,30 @@ def test_exportsview(client, user):
 def test_importsview(client, user):
     client.force_login(user)
     url = reverse('imports')
+    response = client.get(url)
+    assert response.status_code == 200
+    
+    
+@pytest.mark.django_db
+def test_customerlistview(client, user):
+    client.force_login(user)
+    url = reverse('customer_list')
+    response = client.get(url)
+    assert response.status_code == 200
+    
+    
+@pytest.mark.django_db
+def test_orderlistview(client, user):
+    client.force_login(user)
+    url = reverse('order_list')
+    response = client.get(url)
+    assert response.status_code == 200
+    
+
+ @pytest.mark.django_db
+def test_customercreateview(client, user_with_permission):
+    client.force_login(user_with_permission)
+    url = reverse('customer_create')
     response = client.get(url)
     assert response.status_code == 200
     
