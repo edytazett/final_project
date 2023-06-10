@@ -47,3 +47,23 @@ def test_main_page():
     response = client.get(url)
     assert response.status_code == 200
 
+    
+@pytest.mark.django_db
+def test_dashboard(user):
+    pass
+
+
+@pytest.mark.django_db
+def test_mycompanyview(user):
+    pass
+
+
+@pytestmark.django_db
+def test_exportsview(user):
+    pass
+
+
+@pytestmark.django_db
+def test_importsview(user):
+    pass
+    
